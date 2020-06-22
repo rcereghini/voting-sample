@@ -4,14 +4,14 @@ import "./votingTable.css";
 
 const VotingTable = (props) => {
   const addVoteToColor = (color) => {
-    firestore
-      .collection("colors")
-      .doc(color.id)
-      .set({
-        votes: color.votes++,
-        ...color,
-      });
     if (props.userVotes.length <= 2) {
+      firestore
+        .collection("colors")
+        .doc(color.id)
+        .set({
+          votes: color.votes++,
+          ...color,
+        });
       let votes = props.userVotes ? [...props.userVotes] : [];
       votes.push(color.id);
       firestore
