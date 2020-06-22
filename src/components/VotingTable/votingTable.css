@@ -1,0 +1,84 @@
+.voting-table-header {
+  background-color: rgb(58, 140, 160);
+  font-size: 2em;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  margin: 0em;
+  padding: 0.3em;
+}
+
+.voting-table-header > h2 {
+  margin: 0em;
+  font-size: 1em;
+  align-self: center;
+}
+
+.voting-table {
+  width: 100%;
+  margin-bottom: 2em;
+  justify-self: center;
+  max-width: 550px;
+}
+
+.voting-table-header-count {
+  font-size: 14px;
+  align-self: center;
+  color: rgb(58, 140, 160);
+  border-radius: 50%;
+  background-color: white;
+  padding: 0.5em;
+}
+
+.voting-table-row-container > div > p {
+  align-self: center;
+}
+
+.voting-table-row-container > div > span {
+  background-color: rgba(0, 0, 0, 0.08);
+  height: 100%;
+  padding: 0.5em;
+  color: white;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+
+.voting-table-row-container > div > span:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.voting-table-row-container > div {
+  color: #706e70;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1em;
+  background-color: rgb(214, 214, 214);
+}
+
+.voting-table-row-container > div:nth-child(2n) {
+  background-color: rgb(225, 225, 225);
+}
+
+.available-item-name {
+  text-align: left;
+  padding: 0.5em;
+  margin: 0em;
+  width: 100%;
+}
+
+.available-item-vote-count {
+  padding-right: 1em;
+}
+
+.add-vote-button {
+  width: 50px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 0px;
+  color: white;
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.add-vote-button:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}

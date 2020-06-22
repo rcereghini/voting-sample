@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Voting from "./components/Voting/Voting";
+import { firestore } from "./firebase/firebase.utils";
+import { v1 as uuid } from "uuid";
+
+import "./App.css";
 
 function App() {
+  if (!localStorage.getItem("mockAuth")) {
+    localStorage.setItem("mockAuth", uuid());
+    firestore
+      .collection("users")
+      .doc(localStorage.getItem("mockAuth"))
+      .set({
+        id: localStorage.getItem("mockAuth"),
+        votes: [],
+      });
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Voting></Voting>
     </div>
   );
 }
