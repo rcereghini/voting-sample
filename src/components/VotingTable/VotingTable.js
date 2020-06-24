@@ -4,20 +4,28 @@ import "./votingTable.css";
 
 const VotingTable = (props) => {
   const addVoteToColor = (color) => {
+    let checkVoteDuplicate = false;
+    props.userVotes.forEach((vote) => {
+      if (vote === color.id) checkVoteDuplicate = true;
+    });
     if (props.userVotes.length <= 2) {
-      firestore
-        .collection("colors")
-        .doc(color.id)
-        .set({
-          votes: color.votes++,
-          ...color,
-        });
-      let votes = props.userVotes ? [...props.userVotes] : [];
-      votes.push(color.id);
-      firestore
-        .collection("users")
-        .doc(localStorage.getItem("mockAuth"))
-        .set({ votes: votes });
+      if (!checkVoteDuplicate) {
+        firestore
+          .collection("colors")
+          .doc(color.id)
+          .set({
+            votes: color.votes++,
+            ...color,
+          });
+        let votes = props.userVotes ? [...props.userVotes] : [];
+        votes.push(color.id);
+        firestore
+          .collection("users")
+          .doc(localStorage.getItem("mockAuth"))
+          .set({ votes: votes });
+      } else {
+        alert("You've already voted for that color!");
+      }
     } else {
       alert("You have used your three votes!");
     }

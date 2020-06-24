@@ -3,6 +3,7 @@ import "firebase/firestore";
 import "firebase/auth";
 import "firebase/storage";
 
+//The following should be hidden in environment variables...
 const config = {
   apiKey: "AIzaSyCFTHG5O0EQypbxUhIZcyawSduSENJALLY",
   authDomain: "voting-sample.firebaseapp.com",
